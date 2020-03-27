@@ -9,8 +9,9 @@ goto ${menu} ||
 clear osversion
 set os CentOS
 menu ${os} - ${arch} - Image Sig Checks: [${img_sigs_enabled}]
-item 7.6.1810 ${os} 7.6
-item 6.10 ${os} 6.10
+item 8 ${os} 8
+item 7 ${os} 7
+item 6 ${os} 6
 isset ${osversion} || choose osversion || goto linux_menu
 echo ${cls}
 iseq ${osversion} 6.10 && set dir ${menu}/${osversion}/os/${arch} ||
