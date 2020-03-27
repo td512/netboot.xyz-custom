@@ -56,8 +56,8 @@ goto boottype
 
 :bootos_images
 imgfree
-kernel http://${centos_mirror}/${dir}/images/pxeboot/vmlinuz repo=${repo} ${params} ${console} BOOTIF=${netX/mac} nameserver=1.1.1.1 ip=104.152.190.26::104.152.190.25:255.255.255.248:cs1nc1dac.m6securities.com:eth0:none initrd=initrd.img
-initrd http://${centos_mirror}/${dir}/images/pxeboot/initrd.img
+kernel ${centos_mirror}/${dir}/images/pxeboot/vmlinuz repo=${repo} ${params} ${console} BOOTIF=${netX/mac} nameserver=1.1.1.1 ip=104.152.190.26::104.152.190.25:255.255.255.248:cs1nc1dac.m6securities.com:eth0:none initrd=initrd.img
+initrd ${centos_mirror}/${dir}/images/pxeboot/initrd.img
 echo
 echo MD5sums:
 md5sum vmlinuz initrd.img
