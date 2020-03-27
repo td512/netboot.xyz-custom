@@ -14,7 +14,7 @@ item 7 ${os} 7
 item 6 ${os} 6
 isset ${osversion} || choose osversion || goto linux_menu
 echo ${cls}
-iseq ${osversion} 6.10 && set dir ${menu}/${osversion}/os/${arch} ||
+iseq ${osversion} 6 && set dir ${menu}/${osversion}/os/${arch} ||
 set dir ${centos_base_dir}/${osversion}/os/x86_64
 set repo http://${centos_mirror}/${dir}
 goto boottype
