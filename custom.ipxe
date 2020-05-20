@@ -16,7 +16,7 @@ isset ${osversion} || choose osversion || goto linux_menu
 echo ${cls}
 iseq ${osversion} 6 && set dir ${menu}/${osversion}/os/${arch} ||
 set dir http://centos.mirrors.theom.nz/${osversion}/os/x86_64
-set repo ${centos_mirror}/${dir}
+set repo ${dir}
 goto boottype
 
 :boottype
