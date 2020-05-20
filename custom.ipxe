@@ -57,7 +57,7 @@ goto boottype
 
 :bootos_images
 imgfree
-kernel http://centos.mirrors.theom.nz/7/os/x86_64/images/pxeboot/vmlinuz repo=${repo} ${params} ${console} BOOTIF=${net0/mac} nameserver=1.1.1.1 ip=91.208.228.10::91.208.228.1:255.255.255.0:10ge1-1.core1.lpl1.m6securities.com:eth0:none initrd=initrd.img
+kernel http://centos.mirrors.theom.nz/7/os/x86_64/images/pxeboot/vmlinuz repo=${repo} ${params} ${console} BOOTIF=${net0/mac} nameserver=1.1.1.1 ip=91.208.228.10::91.208.228.1:255.255.255.0:10ge1-1.core1.lpl1.m6securities.com:eno1:none initrd=initrd.img
 initrd http://centos.mirrors.theom.nz/7/os/x86_64/images/pxeboot/initrd.img
 echo
 boot
