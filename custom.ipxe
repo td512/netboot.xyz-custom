@@ -160,13 +160,13 @@ goto 20.10-boot
 
 :18.04-boot
 imgfree
-kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=http fetch=${squash_url} initrd=initrd ${cmdline}
+kernel ${kernel_url}vmlinuz  boot=casper netboot=http fetch=${squash_url} initrd=initrd ${cmdline}
 initrd ${kernel_url}initrd
 boot
 
 :20.04-boot
 imgfree
-kernel ${kernel_url}vmlinuz boot=casper netboot=url url=${squash_url} initrd=initrd ${cmdline} initrd=initrd ip=209.182.235.206::209.182.235.1:255.255.255.0:ubuntu::on
+kernel ${kernel_url}vmlinuz ip=209.182.235.206::209.182.235.1:255.255.255.0:ubuntu::on boot=casper netboot=url url=${squash_url} initrd=initrd ${cmdline}
 initrd ${kernel_url}initrd
 boot
 
