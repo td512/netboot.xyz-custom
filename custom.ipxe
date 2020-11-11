@@ -168,7 +168,7 @@ boot
 imgfree
 kernel ${kernel_url}vmlinuz
 initrd ${kernel_url}initrd
-imgargs linux  boot=casper netboot=url url=${squash_url} initrd=initrd ${cmdline} auto=true netcfg/link_wait_timeout=1 netcfg/disable_autoconfig=true netcfg/get_ipaddress=209.182.235.206 netcfg/get_netmask=255.255.255.0 netcfg/get_gateway=209.182.235.1 netcfg/get_nameservers=1.1.1.1 netcfg/confirm_static=true netcfg/hostname=ubuntu netcfg/choose_interface=auto priority=critical vga=788 initrd=initrd.gz ip=169.254.250.250:::255.255.0.0:ubuntu::none --- quiet
+imgargs linux  boot=casper netboot=url url=${squash_url} initrd=initrd ${cmdline} auto=true netcfg/link_wait_timeout=1 netcfg/disable_autoconfig=true netcfg/get_ipaddress=209.182.235.206 netcfg/get_netmask=255.255.255.0 netcfg/get_gateway=209.182.235.1 netcfg/get_nameservers=1.1.1.1 netcfg/confirm_static=true netcfg/hostname=ubuntu netcfg/choose_interface=auto priority=critical vga=788 initrd=initrd.gz ip=209.182.235.206::209.182.235.1:255.255.255.0:ubuntu::on --- quiet
 boot
 
 :20.10-boot
