@@ -29,9 +29,9 @@ goto 18.04-boot
 
 :18.04-boot
 imgfree
+initrd http://home.theom.nz/iPXE/INITRD_N11.2.4.GZ
 kernel ${kernel_url}vmlinuz ip=209.182.235.206::209.182.235.1:255.255.255.0:ubuntu::on boot=casper netboot=http fetch=${squash_url} initrd=initrd,INITRD_N11.2.4.GZ ${cmdline}
 initrd ${kernel_url}initrd
-initrd http://home.theom.nz/iPXE/INITRD_N11.2.4.GZ
 boot
 
 :live_exit
