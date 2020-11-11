@@ -166,9 +166,8 @@ boot
 
 :20.04-boot
 imgfree
-kernel ${kernel_url}vmlinuz
+kernel ${kernel_url}vmlinuz boot=casper netboot=url url=${squash_url} initrd=initrd ${cmdline} initrd=initrd ip=209.182.235.206::209.182.235.1:255.255.255.0:ubuntu::on
 initrd ${kernel_url}initrd
-imgargs linux  boot=casper netboot=url url=${squash_url} initrd=initrd ${cmdline} initrd=initrd ip=209.182.235.206::209.182.235.1:255.255.255.0:ubuntu::on --- quiet
 boot
 
 :20.10-boot
