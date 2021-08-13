@@ -57,7 +57,7 @@ goto boottype
 
 :bootos_images
 imgfree
-kernel http://91.208.233.251/8/images/pxeboot/vmlinuz linux repo=http://91.208.233.251/8/  rd.timeout=30 ${params} ${console} nameserver=1.1.1.1 ip=91.208.233.250:91.208.233.249:29:nex.rhev.theom.nz:bond0:none nameserver=1.1.1.1 bond=bond0:eno1,eno2:miimon=80,mode=active-backup,primary=eno1,primary_reselect=0 initrd=initrd.img
+kernel http://91.208.233.251/8/images/pxeboot/vmlinuz linux repo=http://91.208.233.251/8/  rd.timeout=30 ${params} ${console} nameserver=1.1.1.1 ip=91.208.233.250:91.208.233.249:29:nex.rhev.theom.nz:bond0:none nameserver=1.1.1.1 bond=bond0:eno1,eno2:miimon=100,mode=4 initrd=initrd.img
 initrd http://91.208.233.251/8/images/pxeboot/initrd.img
 echo
 boot
