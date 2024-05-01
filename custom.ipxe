@@ -1,15 +1,6 @@
 # Citrix XenServer Hypervisor
 # http://xenserver.org
 
-goto ${menu} ||
-
-:xenserver
-clear osversion
-set os Citrix XenServer
-menu ${os} 
-item --gap Stable Releases
-item 8 ${space} ${os} 8
-choose xs_version
 goto boot_xs
 
 :boot_xs
