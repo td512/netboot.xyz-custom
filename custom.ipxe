@@ -1,68 +1,20 @@
-#!ipxe
-
-# CentOS Operating System
-# http://www.centos.org
+# Citrix XenServer Hypervisor
+# http://xenserver.org
 
 goto ${menu} ||
 
-:centos
+:xenserver
 clear osversion
-set os CentOS
-menu ${os} - ${arch} - Image Sig Checks: [${img_sigs_enabled}]
-item 8 ${os} 8
-item 7 ${os} 7
-item 6 ${os} 6
-isset ${osversion} || choose osversion || goto linux_menu
-echo ${cls}
-iseq ${osversion} 6 && set dir ${menu}/${osversion}/os/${arch} ||
-set dir http://centos.mirrors.theom.nz/${osversion}/os/x86_64
-set repo ${dir}
-goto boottype
+set os Citrix XenServer
+menu ${os} 
+item --gap Stable Releases
+item 8 ${space} ${os} 8
+choose xs_version
+goto boot_xs
 
-:boottype
-set ova ${os} ${osversion}
-menu ${os} ${arch} boot type
-item graphical ${ova} graphical installer
-item text ${ova} text based installer
-item rescue ${ova} rescue
-item kickstart ${ova} set kickstart url [ ${ksurl} ]
-item kickstart_device ${ova} set ksdevice [ ${ksdevice} ]
-isset ${bt} || choose bt || goto centos
-echo ${cls}
-iseq ${bt} text && goto text ||
-iseq ${bt} rescue && goto rescue ||
-iseq ${bt} kickstart && goto kickstart ||
-iseq ${bt} kickstart_device && goto kickstart_device ||
-goto bootos_images
-
-:text
-set params text ||
-goto bootos_images
-
-:rescue
-set params rescue ||
-goto bootos_images
-
-:kickstart
-echo -n Specify kickstart URL for ${os} ${osversion}: && read ksurl
-set params ks=${ksurl} ||
-clear bt
-goto boottype
-
-:kickstart_device
-echo -n Specify ksdevice param for ${os} ${osversion}: && read ksdevice
-set ksdevice ${ksdevice} ||
-clear bt
-goto boottype
-
-:bootos_images
+:boot_xs
 imgfree
-kernel http://rhel8.s3.theom.nz/images/pxeboot/vmlinuz linux repo=https://rhel8.s3.theom.nz/ rd.timeout=30 ${params} ${console} nameserver=1.1.1.1 ip=91.208.233.242:91.208.233.241:29:keanu73isabannedword:eno1:none nameserver=1.1.1.1 initrd=initrd.img 
-initrd http://rhel8.s3.theom.nz/images/pxeboot/initrd.img
-echo
+kernel https://xen.s3.theom.nz/boot/xen dom0_max_vcpus=1-2 dom0_mem=752M,max:752M com1=115200,8n1 console=com1,vga
+module https://xen.s3.theom.nz/boot/vmlinuz xencons=hvc console=hvc0 console=tty0 install 
+module https://xen.s3.theom.nz/install.img
 boot
-goto linux_menu
-
-:linux_menu
-clear menu
-exit 0
