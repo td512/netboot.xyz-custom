@@ -5,7 +5,7 @@ goto boot_xs
 
 :boot_xs
 imgfree
-kernel https://xen.s3.theom.nz/boot/xen dom0_max_vcpus=1-2 dom0_mem=752M,max:752M com1=115200,8n1 console=com1,vga
-module https://xen.s3.theom.nz/boot/vmlinuz xencons=hvc console=hvc0 console=tty0 install 
-module https://xen.s3.theom.nz/install.img
+set base http://23.80.91.46:8000
+kernel ${base}/images/pxeboot/vmlinuz inst.stage2=${base} ip=dhcp rd.neednet=1
+initrd ${base}/images/pxeboot/initrd.img
 boot
